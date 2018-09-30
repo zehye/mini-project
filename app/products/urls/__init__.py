@@ -1,8 +1,6 @@
-from django.urls import path
+from django.urls import include, path
 
-from . import views
-
-app_name = 'products'
 urlpatterns = [
-
+    path('', include('products.urls.views')),
+    path('api/', include('products.urls.apis')),
 ]
