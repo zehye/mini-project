@@ -8,6 +8,7 @@ class ExhibitionTotalListSerializer(serializers.ModelSerializer):
         model = ExhibitionTotalList
         fields = (
             'pk',
+            'thumbnail',
             'title',
             'place',
             'duration',
