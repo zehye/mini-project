@@ -9,7 +9,7 @@ class User(AbstractUser):
         ('f', '여성'),
         ('x', '선택안함')
     )
-    profile_image = models.ImageField(upload_to='user', blank=True)
+    img_profile = models.ImageField(upload_to='user', blank=True)
     first_name = models.CharField(max_length=5)
     last_name = models.CharField(max_length=10)
     gender = models.CharField(max_length=1, choices=CHOICE_GENDER)
