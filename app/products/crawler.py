@@ -26,5 +26,6 @@ class GetExhibitionTotalList:
         return exhibition_total_list
 
 
+
 if __name__ == '__main__':
     GetExhibitionTotalList().get_exhibition_total_list()
