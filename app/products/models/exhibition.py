@@ -1,37 +1,36 @@
 from django.db import models
 
+from products.models import ExhibitionTotalList
+from .. import crawler_detail
+
 
 class Exhibition(models.Model):
     """
     각 전시, 공연들의 세부 정보
     """
-    # 전시 이름
-    title = models.CharField(max_length=20)
-
-    # 전시 간략 소개
+    title = models.ForeignKey(
+        ExhibitionTotalList,
+        on_delete=models.CASCADE,
+    )
+    sm_title = models.CharField(max_length=100)
     description = models.TextField()
+    photo_desc = models.ImageField(blank=True)
+    text_desc = models.TextField(blank=True)
+    address = models.ImageField(upload_to='exhibition_detail_map', blank=True)
+    no = models.IntegerField(blank=True)
 
-    # 리뷰
-    photo_review = models.ImageField(blank=True)
-    text_review = models.TextField(blank=True)
+    def get_exhibition_crawler(self):
+        exhibition = crawler_detail.GetExhibitionDetail().get_exhibition_detail()
+        return exhibition
 
-    # 상세정보
-    photo_event = models.ImageField(blank=True)
-    text_event = models.TextField(blank=True)
+    def create_exhibition(self):
+        pass
 
-    # 위도
-    address_latitude = models.DecimalField(
-        verbose_name='Google MAP API 위도',
-        decimal_places=14,
-        max_digits=16,
-        blank=True,
-    )
 
-    # 경도
-    address_longitude = models.DecimalField(
-        verbose_name='Google MAP API 경도',
-        decimal_places=14,
-        max_digits=17,
-        blank=True,
-    )
+class ExhibitionReview(models.Model):
+    account = models.CharField(max_length=30)
+    score = models.CharField(max_length=10)
+    body = models.TextField(blank=True)
+    date = models.CharField(max_length=20)
+
 

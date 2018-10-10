@@ -8,8 +8,8 @@ class ExhibitionReservation(models.Model):
     전시 예약
     """
     RESERVATION_TYPE = (
-        ('양일권', ''),
-        ('일일권', ''),
+        ('양일권', 'both'),
+        ('일일권', 'only'),
     )
     reservation = models.ForeignKey(
         Exhibition,
