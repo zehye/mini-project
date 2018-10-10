@@ -1,17 +1,11 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Document</title>
-</head>
-<body>
+{% extends 'base.html' %}
+{% block content %}
+    <h2><a href="{% url 'products:exhibition' %}">전체보기</a></h2>
+    <h2><a href="">전시</a></h2>
+    <h2><a href="">뮤지컬</a></h2>
+    <h2><a href="">콘서트</a></h2>
+    <h2><a href="">연극</a></h2>
+    <h2><a href="">클래식</a></h2>
+    <h2><a href="">키즈</a></h2>
+{% endblock %}
 
-<h1>안녕하세요 반가워요</h1>
-<a href="{%url 'members:login' %}">로그인</a>
-<a href="{%url 'members:logout' %}">로그아웃</a>
-
-</body>
-</html>

@@ -1,6 +1,11 @@
-{% for exhibitions in exhibition %}
-    <img src="{{ exhibitions.thumbnail }}" alt="">
-    <h1>{{ exhibitions.title }}</h1>
-    <h1>{{ exhibitions.place }}</h1>
-    <h1>{{ exhibitions.duration }}</h1>
-{% endfor %}
+{% extends 'base.html' %}
+{% block content %}
+    {% for exhibitions in exhibition %}
+        <div><a href="{% url 'products:exhibition-detail' %}">
+            <img src="{{ exhibitions.thumbnail }}" alt="">
+            <h1>{{ exhibitions.title }}</h1>
+            <h1>{{ exhibitions.place }}</h1>
+            <h1>{{ exhibitions.duration }}</h1>
+        </a></div>
+    {% endfor %}
+{% endblock %}
